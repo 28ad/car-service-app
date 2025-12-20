@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+}
+
+@theme {
+  --font-lato: var(--font-lato);
 }
 
 @theme inline {
@@ -20,7 +25,8 @@
 }
 
 body {
-  background: var(--background);
+  background: #e4e4e7;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  
 }
