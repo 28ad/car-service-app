@@ -10,7 +10,7 @@ export default function WithNavbarLayout({
       <Navbar />
 
     {/* wrapper for each page rendered with a navbar */}
-      <main className='pl-48 p-4 mx-4 min-h-screen text-black'>
+      <main className='pl-8 sm:pl-48 p-4 mx-4 min-h-screen text-black'>
         {children}
       </main>
     </>
