@@ -6,13 +6,11 @@ export default function WithNavbarLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="flex min-h-screen">
       <Navbar />
-
-    {/* wrapper for each page rendered with a navbar */}
-      <main className='pl-8 sm:pl-48 p-4 mx-4 min-h-screen text-black'>
+      <main className="flex-1 overflow-auto">
         {children}
       </main>
-    </>
+    </div>
   );
 }
