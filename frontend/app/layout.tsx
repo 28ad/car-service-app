@@ -21,6 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={lato.variable}>
+      
       <body>
 
         {children}

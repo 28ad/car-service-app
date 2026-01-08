@@ -17,6 +17,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-base-black: #121212;
+  --color-secondary-black: #171717;
+  --color-primary-accent: #006239;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
