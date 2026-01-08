@@ -1,9 +1,10 @@
 import heroImg from './assets/images/hero-image.png';
 import Image from 'next/image';
+import { FaInfoCircle } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="h-screen bg-white">
+    <div className="w-full bg-white">
 
       {/* hero section */}
       <main className="p-8 lg:h-3/4 w-full bg-base-black flex justify-center items-center shadow-md">
@@ -32,6 +33,35 @@ export default function Home() {
       </main>
 
       {/* services sections */}
+
+        <div className="font-extrabold text-3xl p-10 text-center lg:text-left">
+          <span className='border-b-6 border-primary-accent'>SERVICES</span>
+        </div>
+        
+
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 place-items-center py-10'>
+
+        {/* service cards */}
+        <div className='shadow-md rounded-lg h-64 w-8/10 flex flex-col items-center justify-center text-center gap-2 p-10 hover:scale-105 '>
+          <FaInfoCircle size={48}/>
+          <span className='font-bold text-2xl'>TITLE</span>
+          <span>Example text explaining the service mentioned in the card</span>
+
+        </div>
+                <div className='shadow-md rounded-lg h-64 w-8/10 flex flex-col items-center justify-center text-center gap-2 p-10 hover:scale-105'>
+          <FaInfoCircle size={48}/>
+          <span className='font-bold text-2xl'>TITLE</span>
+          <span>Example text explaining the service mentioned in the card</span>
+
+        </div>
+                <div className='shadow-md rounded-lg h-64 w-8/10 flex flex-col items-center justify-center text-center gap-2 p-10 hover:scale-105'>
+          <FaInfoCircle size={48}/>
+          <span className='font-bold text-2xl'>TITLE</span>
+          <span>Example text explaining the service mentioned in the card</span>
+
+        </div>                   
+
+      </div>
       
     </div>
   );
