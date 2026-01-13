@@ -1,6 +1,7 @@
 import heroImg from './assets/images/hero-image.png';
 import Image from 'next/image';
 import { FaInfoCircle } from "react-icons/fa";
+import FooterSection from '@/components/footer';
 
 export default function Home() {
   return (
@@ -35,7 +36,7 @@ export default function Home() {
       {/* services sections */}
 
         <div className="font-extrabold text-3xl p-10 text-center lg:text-left">
-          <span className='border-b-6 border-primary-accent'>SERVICES</span>
+          <span className='border-b-6 border-primary-accent rounded-sm'>SERVICES</span>
         </div>
         
 
@@ -62,6 +63,9 @@ export default function Home() {
         </div>                   
 
       </div>
+
+      {/* footer */}
+      <FooterSection />
       
     </div>
   );
