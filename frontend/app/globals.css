@@ -54,6 +54,7 @@
   --color-base-black: #121212;
   --color-secondary-black: #171717;
   --color-primary-accent: #006239;
+  --color-primary-accent-hover: #004d2f;
 }
 
 body {
