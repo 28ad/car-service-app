@@ -5,8 +5,12 @@ import { useState } from 'react';
 import styles from './register.module.css';
 import Link from 'next/dist/client/link';
 import StatusMessage from '../components/StatusMessage';
+import { supabase } from '../supabase/supabaseClient';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
+
+  const router = useRouter();
 
   const [userFormData, setUserFormData] = useState({
     email: '',
@@ -19,6 +23,34 @@ export default function Login() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault(); // stop page reload
     console.log('Form prevented');
+  }
+
+  async function loginUser() {
+    // Reset status message
+    setMessage('');
+
+     const res = await fetch('/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: userFormData.email,
+      password: userFormData.password,
+    }),
+  })
+
+  const data = await res.json()
+
+  if (!res.ok) {
+    setMessage(data.error || 'Login failed')
+    setMessageType('error')
+    return
+  }
+    console.log('Login successful:', data);
+    setMessage("Login successful! Redirecting to dashboard...");
+    setMessageType("success");
+
+    // router.push('/dashboard');
+
   }
 
   return (
@@ -55,7 +87,7 @@ export default function Login() {
         {/* form */}
         <div className='bg-impure-white rounded-sm shadow-md w-8/10 lg:w-6/10 py-4'>
 
-          <form onSubmit={handleSubmit} className='flex flex-col p-4 gap-2 text-sm font-bold'>
+          <form onSubmit={handleSubmit} className='flex flex-col p-4 gap-4 lg:gap-2 text-sm font-bold'>
 
             <label htmlFor="email">Email:</label>
             <input type="text" name='email' value={userFormData.email} onChange={(e) => setUserFormData({
@@ -70,7 +102,7 @@ export default function Login() {
             })} className='placeholder:font-normal border-gray-500 border rounded-sm p-2' placeholder='Password' />
 
             <button className='py-2 px-4 bg-primary-accent text-white rounded-sm hover:bg-primary-accent-hover cursor-pointer'
-              onClick={() => console.log(userFormData)}>LOGIN</button>
+              onClick={() => loginUser()}>LOGIN</button>
 
 
           </form>

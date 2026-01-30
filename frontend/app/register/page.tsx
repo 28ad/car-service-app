@@ -74,8 +74,9 @@ export default function Register() {
     if (error) {
       <StatusMessage statusMessage={`Registration failed: ${error.message}`} statusType="error" />;
       return;
-    }
+    } 
 
+    // Create user in 'users' table
     if (data) {
       
       const {error: profileError} = await supabase.from('users').insert([
@@ -86,11 +87,29 @@ export default function Register() {
         }
       ]); 
 
+      // Handle profile creation error
       if (profileError) {
         setMessage(`Profile creation failed: ${profileError.message}`);
         setMessageType("error");
         return;
       }
+
+      
+      // Registration successful
+      console.log(data.session)
+      setMessage("Registration successful! You will now be redirected to the dashboard.");
+      setMessageType("success");
+      setUserFormData({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        isChecked: false,
+      });
+
+      setTimeout(() => {
+        window.location.href = '/dashboard';
+      }, 3000);
     }
     }
 

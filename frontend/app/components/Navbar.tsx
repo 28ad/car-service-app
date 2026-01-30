@@ -8,6 +8,7 @@ import { MdHome } from "react-icons/md";
 import { AiFillTool } from "react-icons/ai";
 import { FaCarAlt } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
+import {supabase} from '../supabase/supabaseClient';
 
 export default function Navbar() {
 
@@ -35,7 +36,13 @@ export default function Navbar() {
   function toggleMenu() {
 
     setIsOpen(!isOpen);
-    console.log(window.innerWidth)
+
+  }
+
+  // logout function
+  async function logout() {
+    await supabase.auth.signOut();
+    window.location.href = '/login';
   }
 
   return (
@@ -76,7 +83,7 @@ export default function Navbar() {
       {/* logout */}
       <div className={`absolute bottom-0 flex-row justify-center items-center w-48 h-20 cursor-pointer hover:bg-zinc-200 ${isOpen ? 'flex w-full' : 'hidden'} sm:flex`}>
 
-        <div className='text-2xl text-black font-bold'>Logout</div>
+        <div className='text-2xl text-black font-bold' onClick={() => logout()}>Logout</div>
 
       </div>
 
