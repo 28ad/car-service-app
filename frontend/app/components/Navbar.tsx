@@ -8,12 +8,13 @@ import { MdHome } from "react-icons/md";
 import { AiFillTool } from "react-icons/ai";
 import { FaCarAlt } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
-import {supabase} from '../supabase/supabaseClient';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
 
   // variable to check hamburger menu state
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     function handleResize() {
@@ -41,7 +42,9 @@ export default function Navbar() {
 
   // logout function
   async function logout() {
-    await supabase.auth.signOut();
+    await fetch('/api/logout', { method: 'POST' })
+    router.push('/login')
+    router.refresh() // important
     window.location.href = '/login';
   }
 
