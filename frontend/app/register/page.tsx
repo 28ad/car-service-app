@@ -5,7 +5,7 @@ import { useState } from 'react';
 import styles from './register.module.css';
 import Link from 'next/dist/client/link';
 import {supabase} from '../supabase/supabaseClient';
-import StatusMessage from '../components/StatusMessage';
+import StatusMessage from '../../components/StatusMessage';
 
 export default function Register() {
 

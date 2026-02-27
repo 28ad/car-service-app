@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from 'react';
 import styles from './register.module.css';
 import Link from 'next/dist/client/link';
-import StatusMessage from '../components/StatusMessage';
+import StatusMessage from '../../components/StatusMessage';
 import { supabase } from '../supabase/supabaseClient';
 import { useRouter } from 'next/navigation';
 
@@ -90,13 +90,13 @@ export default function Login() {
           <form onSubmit={handleSubmit} className='flex flex-col p-4 gap-4 lg:gap-2 text-sm font-bold'>
 
             <label htmlFor="email">Email:</label>
-            <input type="text" name='email' value={userFormData.email} onChange={(e) => setUserFormData({
+            <input required type="text" name='email' value={userFormData.email} onChange={(e) => setUserFormData({
               ...userFormData,
               [e.target.name]: e.target.value
             })} className='placeholder:font-normal border-gray-500 border rounded-sm p-2' placeholder='Email' />
 
             <label htmlFor="password">Password:</label>
-            <input type="password" name='password' onChange={(e) => setUserFormData({
+            <input required type="password" name='password' onChange={(e) => setUserFormData({
               ...userFormData,
               [e.target.name]: e.target.value
             })} className='placeholder:font-normal border-gray-500 border rounded-sm p-2' placeholder='Password' />

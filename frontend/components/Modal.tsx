@@ -13,6 +13,7 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+    borderRadius: '8px',
 };
 
 type ModalProps = {
@@ -33,9 +34,9 @@ export default function ModalComponent({ isOpen, onClose, children }: ModalProps
         <div>
             <div
                 onClick={handleOpen}
-                className='min-w-64 p-8 py-20 rounded-md shadow-lg flex justify-center items-center flex-col cursor-pointer hover:scale-105 duration-200 ease-in-out'>
+                className='bg-white min-w-64 p-8 py-20 rounded-md shadow-lg flex justify-center items-center flex-col cursor-pointer hover:scale-105 duration-200 ease-in-out'>
                 <GoPlus size={96} color='#808080' />
-                <span className='mt-4 text-2xl font-bold uppercase'>Add New Vehicle</span>
+                <span className='mt-4 text-2xl font-bold uppercase'>Add Vehicle</span>
             </div>
                 <Modal
                     open={open}
